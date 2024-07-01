@@ -22,16 +22,22 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;
 
+;; Casual IBuffer is an opinionated Transient-based porcelain for Emacs IBuffer.
+
+;; INSTALLATION
+;; (require 'casual-ibuffer) ;; optional
+;; (keymap-set ibuffer-mode-map "C-o" #'casual-ibuffer-tmenu)
+;; (keymap-set ibuffer-mode-map "F" #'casual-ibuffer-filter-tmenu)
+;; (keymap-set ibuffer-mode-map "s" #'casual-ibuffer-sortby-tmenu)
+
+;;; Code:
 (require 'ibuffer)
 (require 'bookmark)
 (require 'casual-lib)
 (require 'casual-ibuffer-utils)
 (require 'casual-ibuffer-filter)
 (require 'casual-ibuffer-settings)
-
-;;; Code:
 
 ;;;###autoload (autoload 'casual-ibuffer-tmenu "casual-ibuffer" nil t)
 (transient-define-prefix casual-ibuffer-tmenu ()
