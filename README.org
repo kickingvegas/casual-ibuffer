@@ -20,7 +20,7 @@ Casual IBuffer has been verified with the following configuration.
 - Emacs 29.3 (macOS 14.5, Ubuntu Linux 22.04.4 LTS)
 
 * Asks
-As Casual IBuffer is new, we are looking for early adopters! Your [[https://github.com/kickingvegas/casual-avy/discussions][feedback]] is welcome as it will likely impact Casual IBuffer's evolution, particularly with regards to UI.
+As Casual IBuffer is new, we are looking for early adopters! Your [[https://github.com/kickingvegas/casual-ibuffer/discussions][feedback]] is welcome as it will likely impact Casual IBuffer's evolution, particularly with regards to UI.
 
 * Install
 If installed via MELPA (pending) then add these lines to your Emacs initialization file with your binding of preference. 
