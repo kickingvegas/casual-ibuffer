@@ -31,14 +31,14 @@
 (ert-deftest test-casual-ibuffer-settings-tmenu-bindings ()
   (casualt-setup)
   (let ((test-vectors (list)))
-    (casualt-add-testcase "f" #'casual-ibuffer--customize-ibuffer-saved-filters test-vectors)
-    (casualt-add-testcase "g" #'casual-ibuffer--customize-ibuffer-saved-filter-groups test-vectors)
-    (casualt-add-testcase "G" #'casual-ibuffer--customize-group test-vectors)
+    (push (casualt-suffix-test-vector "f" #'casual-ibuffer--customize-ibuffer-saved-filters) test-vectors)
+    (push (casualt-suffix-test-vector "g" #'casual-ibuffer--customize-ibuffer-saved-filter-groups) test-vectors)
+    (push (casualt-suffix-test-vector "G" #'casual-ibuffer--customize-group) test-vectors)
 
-    (casualt-add-testcase "u" #'casual-lib-customize-casual-lib-use-unicode test-vectors)
-    (casualt-add-testcase "n" #'casual-lib-customize-casual-lib-hide-navigation test-vectors)
-    (casualt-add-testcase "a" #'casual-ibuffer-about test-vectors)
-    (casualt-add-testcase "v" #'casual-ibuffer-version test-vectors)
+    (push (casualt-suffix-test-vector "u" #'casual-lib-customize-casual-lib-use-unicode) test-vectors)
+    (push (casualt-suffix-test-vector "n" #'casual-lib-customize-casual-lib-hide-navigation) test-vectors)
+    (push (casualt-suffix-test-vector "a" #'casual-ibuffer-about) test-vectors)
+    (push (casualt-suffix-test-vector "v" #'casual-ibuffer-version) test-vectors)
 
     (casualt-suffix-testbench-runner test-vectors
                                      #'casual-ibuffer-settings-tmenu
