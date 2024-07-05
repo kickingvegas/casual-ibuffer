@@ -26,8 +26,10 @@ else
 endif
 
 PACKAGE_NAME=casual-ibuffer
-ELISP_INCLUDES=casual-ibuffer-version.el casual-ibuffer-utils.el
-ELISP_PACKAGES=casual-ibuffer-settings.el casual-ibuffer-filter.el
+ELISP_INCLUDES=casual-ibuffer-version.el	\
+casual-ibuffer-utils.el				\
+casual-ibuffer-settings.el
+ELISP_PACKAGES=casual-ibuffer-filter.el
 ELISP_TEST_INCLUDES=casual-ibuffer-test-utils.el
 CASUAL_BASE_DIR=$(HOME)/Projects/elisp
 CASUAL_LIB_DIR=$(CASUAL_BASE_DIR)/casual-lib

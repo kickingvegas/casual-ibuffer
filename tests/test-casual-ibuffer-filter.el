@@ -28,5 +28,49 @@
 (require 'casual-ibuffer-test-utils)
 (require 'casual-ibuffer-filter)
 
+(ert-deftest test-casual-ibuffer-filter-tmenu ()
+  (casualt-setup)
+  (let ((test-vectors (list)))
+
+    (push (casualt-suffix-test-vector " " #'ibuffer-filter-chosen-by-completion) test-vectors)
+    (push (casualt-suffix-test-vector "r" #'ibuffer-switch-to-saved-filters) test-vectors)
+    (push (casualt-suffix-test-vector "a" #'ibuffer-add-saved-filters) test-vectors)
+    ;;(push (casualt-suffix-test-vector "g" #'ibuffer-filters-to-filter-group) test-vectors)
+
+    ;; (push (casualt-suffix-test-vector "&" #'ibuffer-and-filter) test-vectors)
+    ;; (push (casualt-suffix-test-vector "|" #'ibuffer-or-filter) test-vectors)
+    ;; (push (casualt-suffix-test-vector "!" #'ibuffer-negate-filter) test-vectors)
+    ;; (push (casualt-suffix-test-vector "t" #'ibuffer-exchange-filters) test-vectors)
+    ;; (push (casualt-suffix-test-vector "d" #'ibuffer-decompose-filter) test-vectors)
+
+    ;; (push (casualt-suffix-test-vector "-" #'ibuffer-pop-filter) test-vectors)
+    ;; (push (casualt-suffix-test-vector "/" #'ibuffer-filter-disable) test-vectors)
+    ;; (push (casualt-suffix-test-vector "s" #'ibuffer-save-filters) test-vectors)
+    ;; (push (casualt-suffix-test-vector "x" #'ibuffer-delete-saved-filters) test-vectors)
+
+    (push (casualt-suffix-test-vector "p" #'ibuffer-backward-line) test-vectors)
+    (push (casualt-suffix-test-vector "n" #'ibuffer-forward-line) test-vectors)
+    (push (casualt-suffix-test-vector "[" #'ibuffer-backward-filter-group) test-vectors)
+    (push (casualt-suffix-test-vector "]" #'ibuffer-forward-filter-group) test-vectors)
+    (push (casualt-suffix-test-vector "j" #'ibuffer-jump-to-buffer) test-vectors)
+    ;; (push (casualt-suffix-test-vector "ê" #'ibuffer-jump-to-filter-group) test-vectors)
+
+    ;; (push (casualt-suffix-test-vector "R" #'casual-ibuffer-switch-to-saved-filter-groups) test-vectors)
+    ;; (push (casualt-suffix-test-vector "S" #'ibuffer-save-filter-groups) test-vectors)
+    ;; (push (casualt-suffix-test-vector "X" #'ibuffer-delete-saved-filter-groups) test-vectors)
+
+    ;; (push (casualt-suffix-test-vector "D" #'ibuffer-decompose-filter-group) test-vectors)
+    ;; (push (casualt-suffix-test-vector "P" #'ibuffer-pop-filter-group) test-vectors)
+    ;; (push (casualt-suffix-test-vector "\\" #'ibuffer-clear-filter-groups) test-vectors)
+
+    (push (casualt-suffix-test-vector "," #'casual-ibuffer-settings-tmenu) test-vectors)
+    (push (casualt-suffix-test-vector "" #'casual-ibuffer-return-dwim) test-vectors)
+    ;; (push (casualt-suffix-test-vector "$" #'ibuffer-toggle-filter-group) test-vectors)
+
+    (casualt-suffix-testbench-runner test-vectors
+                                     #'casual-ibuffer-filter-tmenu
+                                     '(lambda () (random 5000))))
+  (casualt-breakdown t))
+
 (provide 'test-casual-ibuffer-filter)
 ;;; test-casual-ibuffer-filter.el ends here

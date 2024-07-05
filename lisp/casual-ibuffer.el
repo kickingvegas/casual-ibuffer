@@ -5,7 +5,7 @@
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/casual-ibuffer
 ;; Keywords: tools
-;; Version: 1.0.1
+;; Version: 1.1.0
 ;; Package-Requires: ((emacs "29.1") (casual-lib "1.1.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -36,11 +36,12 @@
 (require 'bookmark)
 (require 'casual-lib)
 (require 'casual-ibuffer-utils)
-(require 'casual-ibuffer-filter)
 (require 'casual-ibuffer-settings)
+(require 'casual-ibuffer-filter)
 
 ;;;###autoload (autoload 'casual-ibuffer-tmenu "casual-ibuffer" nil t)
 (transient-define-prefix casual-ibuffer-tmenu ()
+  :refresh-suffixes t
   ["IBuffer: Main"
    ["Operations"
     ("o" "Visit Other" ibuffer-visit-buffer-other-window)
@@ -64,7 +65,11 @@
     ("s" "Sort By›" casual-ibuffer-sortby-tmenu :transient t)
     ("`" "Toggle Format" ibuffer-switch-format :transient t)
     ("b" "Bury Buffer" ibuffer-bury-buffer :transient t)
-    ("g" "Refresh" ibuffer-update :transient t)]
+    ("g" "Refresh" ibuffer-update :transient t)
+    ("$" "Toggle Group" ibuffer-toggle-filter-group
+     :description (lambda () (format "Toggle %s" (casual-ibuffer-unicode-get :group)))
+     :inapt-if-not (lambda () (casual-ibuffer-filter-group-p))
+     :transient t)]
 
    ["Navigation"
     :pad-keys t

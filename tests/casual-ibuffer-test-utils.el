@@ -29,15 +29,11 @@
 
 (defun casualt-setup ()
   "Casual menu test setup function."
-  )
+  (ibuffer))
 
 (defun casualt-breakdown (&optional clear)
   "Casual menu test breakdown function, if CLEAR is non-nil then clear state."
   )
-
-(defun casualt-add-testcase (binding command vectors)
-  "Add test case BINDING, COMMAND to list of VECTORS."
-  (push (casualt-suffix-test-vector binding command) vectors))
 
 (provide 'casual-ibuffer-test-utils)
 ;;; casual-ibuffer-test-utils.el ends here

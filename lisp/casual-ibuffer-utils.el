@@ -53,11 +53,15 @@ Inspects if the point is on a filter group and if so will call
 `ibuffer-toggle-filter-group', otherwise call
 `ibuffer-visit-buffer'."
   (interactive)
+  (if (casual-ibuffer-filter-group-p)
+      (ibuffer-toggle-filter-group)
+    (ibuffer-visit-buffer)))
 
+(defun casual-ibuffer-filter-group-p ()
+  "Predicate if filter group is under point."
   (let ((name (get-text-property (point) 'ibuffer-filter-group-name)))
-    (if (stringp name)
-        (ibuffer-toggle-filter-group)
-      (ibuffer-visit-buffer))))
+    (if (stringp name) t nil)))
+
 
 (provide 'casual-ibuffer-utils)
 ;;; casual-ibuffer-utils.el ends here
