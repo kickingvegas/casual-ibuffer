@@ -51,6 +51,7 @@ Use these keybindings to configure IBuffer to be consistent with keybindings use
   (keymap-set ibuffer-mode-map "}" #'ibuffer-forward-next-marked)
   (keymap-set ibuffer-mode-map "[" #'ibuffer-backward-filter-group)
   (keymap-set ibuffer-mode-map "]" #'ibuffer-forward-filter-group)
+  (keymap-set ibuffer-mode-map "$" #'ibuffer-toggle-filter-group)  
 #+end_src
 
 While not necessary for Casual IBuffer, enabling ~hl-line-mode~ and binding mouse clicks in IBuffer adds to a more comfortable IBuffer experience. Also, adding ~ibuffer-auto-mode~ to ~ibuffer-mode-hook~ will enable auto-updating. 
@@ -83,7 +84,12 @@ As with other Casual porcelains, the ability to jump to a bookmark is available.
 ** Filtering
 [[file:docs/images/casual-ibuffer-filter-screenshot.png]]
 
-IBuffer offers embarrasingly rich mechanisms for filtering buffers. IBuffer organizes filtering with the following taxonomy:
+
+IBuffer is embarrasingly rich in the ways it can filter buffers. Once mastered, IBuffer filtering offers a way to create different views on your buffer list, enabling you to tailor bespoke views for different workflows. Such capability comes with a price though: you'll need to understand how IBuffer wants to organize filters.
+
+Key is the concept of a /Filter Group/ which is IBuffer's analog to a Dired [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Subdirectories-in-Dired.html][subdirectory]] (subdir). But whereas a subdir only maps to a file system directory, a filter group can be constructed from a diverse set of rules to categorize a buffer.
+
+IBuffer organizes filtering with the following taxonomy:
 
 1. *Filter rule*
    
@@ -101,7 +107,9 @@ IBuffer offers embarrasingly rich mechanisms for filtering buffers. IBuffer orga
    - filter by buffer size
    - filter by special buffers
    - filter by buffers visiting files
-   
+
+    Casual IBuffer makes the design decision to *not* enumerate the above in a menu, delegating the work of filter selection to the command  ~ibuffer-filter-chosen-by-completion~.
+
 2. *Filter*
    
    A /filter/ is a logical combination of filter rules. Logic operators such as AND (&), OR (|) and NOT (!) are used to compose rules into a /filter/.
@@ -126,6 +134,9 @@ IBuffer offers embarrasingly rich mechanisms for filtering buffers. IBuffer orga
 4. *Filter Group Collection*
    
    A /collection/ is a set of filter groups that can be named with a user-defined identifier. Only one collection can be applied to a buffer list at a time. However, many different collections can be defined, allowing for different views of the same buffer list.
+
+Out of the box, it is best to think of the IBuffer commands for editing buffer filters as a kit of parts and an arguably incomplete one at that. The Casual IBuffer filter menu (~casual-ibuffer-filter-tmenu~) is an attempt to build a comprehensible filter editor UI from this kit. Whether it succeeds in being comprehensible is left to user feedback.
+
 
 ** Sorting
 [[file:docs/images/casual-ibuffer-sortby-screenshot.png]]

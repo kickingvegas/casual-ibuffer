@@ -25,6 +25,7 @@
 (require 'ibuffer)
 (require 'ibuf-ext)
 (require 'casual-lib)
+(require 'casual-ibuffer-settings)
 (require 'casual-ibuffer-utils)
 
 ;;; Code:
@@ -162,7 +163,12 @@ The value from `ibuffer-saved-filter-groups' is used."
 
   [:class transient-row
           (casual-lib-quit-one)
+          ("," "Settings›" casual-ibuffer-settings-tmenu)
           ("RET" "Visit/Toggle" casual-ibuffer-return-dwim)
+          ("$" "Toggle Group" ibuffer-toggle-filter-group
+           :description (lambda () (format "Toggle %s" (casual-ibuffer-unicode-get :group)))
+           :inapt-if-not (lambda () (casual-ibuffer-filter-group-p))
+           :transient t)
           (casual-lib-quit-all)])
 
 (provide 'casual-ibuffer-filter)
