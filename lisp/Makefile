@@ -37,7 +37,7 @@ CASUAL_LIB_LISP_DIR=$(CASUAL_LIB_DIR)/lisp
 CASUAL_LIB_TEST_INCLUDES=$(CASUAL_LIB_DIR)/tests/casual-lib-test-utils.el
 EMACS_ELPA_DIR=$(HOME)/.config/emacs/elpa
 PACKAGE_PATHS=					\
--L $(EMACS_ELPA_DIR)/compat-29.1.4.5		\
+-L $(EMACS_ELPA_DIR)/compat-30.0.0.0		\
 -L $(EMACS_ELPA_DIR)/seq-2.24			\
 -L $(EMACS_ELPA_DIR)/transient-current		\
 -L $(CASUAL_LIB_LISP_DIR)
