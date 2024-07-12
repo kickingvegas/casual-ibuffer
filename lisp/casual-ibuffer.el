@@ -54,7 +54,7 @@
 
    ["Mark"
     ("m" "Mark" ibuffer-mark-forward :transient t)
-    ("t" "Type›" casual-ibuffer-mark-tmenu)
+    ("t" "Type›" casual-ibuffer-mark-tmenu :transient t)
     ("r" "Regexp›" casual-ibuffer-mark-regexp-tmenu :transient t)
     ("u" "Unmark" ibuffer-unmark-forward :transient t)
     ("d" "For Deletion" ibuffer-mark-for-delete :transient t)
@@ -185,6 +185,7 @@
 
   [:class transient-row
           (casual-lib-quit-one)
+          ("U" "Unmark All" ibuffer-unmark-all-marks :transient t)
           (casual-lib-quit-all)])
 
 (transient-define-prefix casual-ibuffer-mark-regexp-tmenu ()
@@ -195,6 +196,7 @@
    ("c" "Content" ibuffer-mark-by-content-regexp)]
   [:class transient-row
           (casual-lib-quit-one)
+          ("U" "Unmark All" ibuffer-unmark-all-marks :transient t)
           (casual-lib-quit-all)])
 
 (provide 'casual-ibuffer)

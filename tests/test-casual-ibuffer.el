@@ -129,6 +129,7 @@
     (push (casualt-suffix-test-vector "D" #'ibuffer-mark-dissociated-buffers) test-vectors)
     (push (casualt-suffix-test-vector "s" #'ibuffer-mark-special-buffers) test-vectors)
     (push (casualt-suffix-test-vector "z" #'ibuffer-mark-compressed-file-buffers) test-vectors)
+    (push (casualt-suffix-test-vector "U" #'ibuffer-unmark-all-marks) test-vectors)
 
     (casualt-suffix-testbench-runner test-vectors
                                      #'casual-ibuffer-mark-tmenu
@@ -142,6 +143,7 @@
     (push (casualt-suffix-test-vector "n" #'ibuffer-mark-by-name-regexp) test-vectors)
     (push (casualt-suffix-test-vector "m" #'ibuffer-mark-by-mode-regexp) test-vectors)
     (push (casualt-suffix-test-vector "c" #'ibuffer-mark-by-content-regexp) test-vectors)
+    (push (casualt-suffix-test-vector "U" #'ibuffer-unmark-all-marks) test-vectors)
 
     (casualt-suffix-testbench-runner test-vectors
                                      #'casual-ibuffer-mark-regexp-tmenu
