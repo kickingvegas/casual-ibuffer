@@ -35,6 +35,7 @@ If installed via MELPA then add these lines to your Emacs initialization file wi
 
 If you use ~use-package~, here is the recipe for installing it.
 #+begin_src elisp :lexical no
+  (require 'ibuffer)
   (use-package casual-ibuffer
     :ensure t
     :bind (:map ibuffer-mode-map
