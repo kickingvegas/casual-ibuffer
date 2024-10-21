@@ -22,7 +22,7 @@
 
 ;;; Code:
 
-(defconst casual-ibuffer-version "1.1.6-rc.1"
+(defconst casual-ibuffer-version "2.0.0"
   "Casual IBuffer Version.")
 
 (defun casual-ibuffer-version ()
