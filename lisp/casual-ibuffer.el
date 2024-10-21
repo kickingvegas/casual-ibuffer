@@ -5,7 +5,7 @@
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/casual-ibuffer
 ;; Keywords: tools
-;; Version: 1.1.5
+;; Version: 1.1.6-rc.1
 ;; Package-Requires: ((emacs "29.1") (casual-lib "1.1.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -22,6 +22,12 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+
+;; NOTICE
+;; This package `casual-ibuffer' has been superseded by the package `casual'.
+;; Please update to the `casual' package from either MELPA or MELPA stable. Upon
+;; installation and upgrade of the `casual' package, this package will be
+;; removed.
 
 ;; Casual IBuffer is an opinionated Transient-based porcelain for Emacs IBuffer.
 
@@ -64,6 +70,13 @@
 (require 'casual-ibuffer-utils)
 (require 'casual-ibuffer-settings)
 (require 'casual-ibuffer-filter)
+
+(display-warning
+ :warning
+ (concat
+  "NOTICE: "
+  "The package casual-ibuffer has been superseded by the package casual. "
+  "Please upgrade to casual at your earliest convenience."))
 
 ;;;###autoload (autoload 'casual-ibuffer-tmenu "casual-ibuffer" nil t)
 (transient-define-prefix casual-ibuffer-tmenu ()
